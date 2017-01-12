@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Gestor de Notas</string>
+    <string name="no_data">No hay datos</string>
+    <string name="nuevaNota">Insertar nota nueva</string>
+    <string name="verNotasMapa">Ver mapa de notas</string>
+    <string name="editar_nota">Editar</string>
+    <string name="eliminar_nota">Eliminar</string>
+    <string name="titulo">Título</string>
+    <string name="descripcion">Descripción</string>
+    <string name="fecha">Fecha</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+    <string name="imagen">Imagen</string>
+    <string name="insertar_nota">Insertar</string>
+    <string name="title_activity_notas_editar">NotasEditar</string>
+    <string name="title_activity_nota_nueva">NotaNueva</string>
+    <string name="nota_insertada">Nota nueva insertada correctamente</string>
+    <string name="nota_editada">La nota fue editada correctamente</string>
+    <string name="nota_eliminada">La nota fue editada correctamente</string>
+
+</resources>

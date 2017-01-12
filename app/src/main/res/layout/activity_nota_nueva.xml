@@ -1,0 +1,99 @@
+<LinearLayout
+    android:id="@+id/activity_nota_detalle"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context="rodriapp.gestordenotas.NotaDetalle">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_titulo_detalle"
+        android:text="@string/titulo"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/nota_titulo_detalle"
+        android:inputType="text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_descripcion_detalle"
+        android:text="@string/descripcion"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapSentences|text"
+        android:ems="10"
+        android:id="@+id/nota_descripcion_detalle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_fecha_detalle"
+        android:text="@string/fecha"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/nota_fecha_detalle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_latitud_detalle"
+        android:text="@string/latitud"/>
+
+    <EditText
+        android:labelFor="@+id/latitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/nota_latitud_detalle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_fecha_detalle"
+        android:text="@string/longitud"/>
+
+    <EditText
+        android:labelFor="@+id/longitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/nota_longitud_detalle"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/nota_imagen_detalle"
+        android:text="@string/imagen"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+        android:id="@+id/nota_imagen_detalle"
+        android:paddingBottom="20dp"
+        android:src="@drawable/common_google_signin_btn_icon_light"/>
+
+    <Button
+        android:text="@string/insertar_nota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_insertar_nota"/>
+
+</LinearLayout>
