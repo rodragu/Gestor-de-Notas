@@ -28,12 +28,16 @@ public class NotaDetalle extends Activity {
         final EditText longitud = (EditText)findViewById(R.id.nota_longitud_detalle);
         final EditText fecha = (EditText)findViewById(R.id.nota_fecha_detalle);
 
+
         _id[0] = extra.getString("_id");
         titulo.setText(extra.getString("titulo"));
         descripcion.setText(extra.getString("descripcion"));
         latitud.setText(String.valueOf(extra.getLong("latitud")));
         longitud.setText(String.valueOf(extra.getLong("longitud")));
         fecha.setText(extra.getString("fecha"));
+
+        final String selection = "_id = ?";
+        final String[] selectionArgs = {_id[0]};
 
         Button btn_editar_nota = (Button)findViewById(R.id.btn_editar_nota);
         btn_editar_nota.setOnClickListener( new View.OnClickListener() {
@@ -46,9 +50,11 @@ public class NotaDetalle extends Activity {
                 values.put("latitud", latitud.getText().toString());
                 values.put("longitud", longitud.getText().toString());
                 values.put("fecha", fecha.getText().toString());
-                getContentResolver().update(uri, values, "_id", _id);
+                getContentResolver().update(uri, values, selection, selectionArgs);
                 Log.i("UPDATED", "Nota Actualizada");
                 Toast.makeText(getApplicationContext(), R.string.nota_editada, Toast.LENGTH_LONG).show();
+                Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(iMain);
             }
         });
 
@@ -56,8 +62,10 @@ public class NotaDetalle extends Activity {
         btn_eliminar_nota.setOnClickListener( new View.OnClickListener() {
             public void onClick(View v) {
                 Uri uri = Uri.parse("content://rodriapp.gestordenotas");
-                getContentResolver().delete(uri, "_id", _id);
-                Toast.makeText(getApplicationContext(), R.string.nota_insertada, Toast.LENGTH_LONG).show();
+                getContentResolver().delete(uri, selection, selectionArgs);
+                Toast.makeText(getApplicationContext(), R.string.nota_eliminada, Toast.LENGTH_LONG).show();
+                Intent iMain = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(iMain);
             }
         });
     }
