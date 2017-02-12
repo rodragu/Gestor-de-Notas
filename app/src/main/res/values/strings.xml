@@ -9,7 +9,9 @@
     <string name="descripcion">Descripción</string>
     <string name="fecha">Fecha</string>
     <string name="latitud">Latitud</string>
+    <string name="no_latitud">Latitud desconocida</string>
     <string name="longitud">Longitud</string>
+    <string name="no_longitud">Longitud desconocido</string>
     <string name="imagen">Imagen</string>
     <string name="insertar_nota">Insertar</string>
     <string name="title_activity_notas_editar">NotasEditar</string>

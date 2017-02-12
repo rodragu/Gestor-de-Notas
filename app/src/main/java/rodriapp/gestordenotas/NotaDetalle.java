@@ -1,33 +1,44 @@
 package rodriapp.gestordenotas;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+
 import java.lang.reflect.Array;
 
+import static rodriapp.gestordenotas.R.id.longitud;
+
 public class NotaDetalle extends Activity {
+
+    private static final int PETICION_PERMISO_LOCALIZACION = 0;
+    final Bundle extra = this.getIntent().getExtras();
+    final String[] _id = new String[1];
+    final EditText titulo = (EditText)findViewById(R.id.nota_titulo_detalle);
+    final EditText descripcion = (EditText)findViewById(R.id.nota_descripcion_detalle);
+    final EditText latitud = (EditText)findViewById(R.id.nota_latitud_detalle);
+    final EditText longitud = (EditText)findViewById(R.id.nota_longitud_detalle);
+    final EditText fecha = (EditText)findViewById(R.id.nota_fecha_detalle);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nota_detalle);
-
-        final Bundle extra = this.getIntent().getExtras();
-        final String[] _id = new String[1];
-        final EditText titulo = (EditText)findViewById(R.id.nota_titulo_detalle);
-        final EditText descripcion = (EditText)findViewById(R.id.nota_descripcion_detalle);
-        final EditText latitud = (EditText)findViewById(R.id.nota_latitud_detalle);
-        final EditText longitud = (EditText)findViewById(R.id.nota_longitud_detalle);
-        final EditText fecha = (EditText)findViewById(R.id.nota_fecha_detalle);
-
 
         _id[0] = extra.getString("_id");
         titulo.setText(extra.getString("titulo"));

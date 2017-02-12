@@ -6,6 +6,12 @@
         android:name="android.permission.READ_CONTACTS"
         android:maxSdkVersion="25"/>
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCbE7YpNCwMieMHLPGSqv73_NMYF7Q6sKg"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,12 +32,18 @@
 
         <activity android:name=".NotaDetalle">
         </activity>
+
         <activity android:name=".NotasMapa">
         </activity>
+
         <activity
             android:name=".NotaNueva"
             android:label="@string/title_activity_nota_nueva">
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>
