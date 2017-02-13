@@ -14,8 +14,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp">
+        android:padding="8dp">
 
         <Button
             android:text="@string/editar_nota"
@@ -30,85 +29,93 @@
             android:id="@+id/btn_eliminar_nota"/>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_titulo_detalle"
-        android:text="@string/titulo"/>
-
-    <EditText
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/nota_titulo_detalle"
-        android:inputType="none"/>
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_descripcion_detalle"
-        android:text="@string/descripcion"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_titulo_detalle"
+            android:text="@string/titulo"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/nota_descripcion_detalle"
-        android:inputType="none"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/nota_titulo_detalle"
+            android:inputType="none"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_fecha_detalle"
-        android:text="@string/fecha"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_descripcion_detalle"
+            android:text="@string/descripcion"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="none|date"
-        android:ems="10"
-        android:id="@+id/nota_fecha_detalle"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/nota_descripcion_detalle"
+            android:inputType="none"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_latitud_detalle"
-        android:text="@string/latitud"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_fecha_detalle"
+            android:text="@string/fecha"/>
 
-    <EditText
-        android:labelFor="@+id/latitud"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="none|numberSigned"
-        android:ems="10"
-        android:id="@+id/nota_latitud_detalle"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|date"
+            android:ems="10"
+            android:id="@+id/nota_fecha_detalle"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_fecha_detalle"
-        android:text="@string/longitud"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_latitud_detalle"
+            android:text="@string/latitud"/>
 
-    <EditText
-        android:labelFor="@+id/longitud"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="none|numberSigned"
-        android:ems="10"
-        android:id="@+id/nota_longitud_detalle"/>
+        <EditText
+            android:labelFor="@+id/latitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|numberSigned"
+            android:ems="10"
+            android:id="@+id/nota_latitud_detalle"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:labelFor="@+id/nota_imagen_detalle"
-        android:text="@string/imagen"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_fecha_detalle"
+            android:text="@string/longitud"/>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
-        android:id="@+id/nota_imagen_detalle"
-        android:paddingBottom="20dp"
-        android:src="@drawable/common_google_signin_btn_icon_light"/>
+        <EditText
+            android:labelFor="@+id/longitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none|numberSigned"
+            android:ems="10"
+            android:id="@+id/nota_longitud_detalle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/nota_imagen_detalle"
+            android:text="@string/imagen"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+            android:id="@+id/nota_imagen_detalle"
+            android:paddingBottom="20dp"
+            android:src="@drawable/common_google_signin_btn_icon_light"/>
+    </LinearLayout>
 
 </LinearLayout>
