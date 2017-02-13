@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Gestor de Notas</string>
     <string name="no_data">No hay datos</string>
-    <string name="nuevaNota">Insertar nota nueva</string>
-    <string name="verNotasMapa">Ver mapa de notas</string>
-    <string name="editar_nota">Editar</string>
+    <string name="nuevaNota">Nota nueva</string>
+    <string name="verNotasMapa">Mapa de notas</string>
+    <string name="editar_nota">Actualizar</string>
     <string name="eliminar_nota">Eliminar</string>
     <string name="titulo">Título</string>
     <string name="descripcion">Descripción</string>
