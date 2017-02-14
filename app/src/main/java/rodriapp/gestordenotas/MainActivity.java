@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 
 import static android.R.id.list;
 import static android.view.View.OnClickListener;
@@ -106,7 +107,7 @@ public class MainActivity extends ListActivity {
                 item.putExtra("descripcion", descripcion);
                 item.putExtra("latitud", latitud);
                 item.putExtra("longitud", longitud);
-                //item.putExtra("fecha", fecha);
+                //item.putExtra("imagen", image);
                 item.putExtra("fecha", fecha);
                 startActivity(item);
                 //cursor.close();

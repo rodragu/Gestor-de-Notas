@@ -81,45 +81,6 @@ public class NotaDetalle extends Activity {
         });
     }
 
-    // Definimos el evento callback onPause de la Actividad
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Aquí deberíamos guardar la información para la siguiente sesión Toast.makeText(this, "Se ejecuta el método onPause", 1).show();
-        //Toast.makeText(this, "Se ejecuta el método onPause en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onRestart de la Actividad
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        //Toast.makeText(this, "Se ejecuta el método onRestart en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onResume de la Actividad
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //Toast.makeText(this, "Se ejecuta el método onResume en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onStart de la Actividad
-    @Override
-    protected void onStart() {
-        super.onStart();
-        // Aquí deberíamos leer los datos de la última sesión para seguir la // aplicación donde la dejó el usuario
-        //Toast.makeText(this, "Se ejecuta el método onStart en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onDestroy de la Actividad
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //Toast.makeText(this, "Se ejecuta el método onDestroy en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onStop de la Actividad
-    @Override
-    protected void onStop() {
-        super.onStop();
-        //Toast.makeTfaext(this, "Se ejecuta el método onStop en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-
     protected void cerrar(View view) {
         finish();
     }

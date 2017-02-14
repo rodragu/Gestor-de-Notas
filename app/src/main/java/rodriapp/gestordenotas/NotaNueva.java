@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,18 +30,18 @@ public class NotaNueva extends Activity implements
     private static final int PETICION_PERMISO_LOCALIZACION = 0;
     GoogleApiClient mGoogleApiClient;
 
+    final EditText titulo = (EditText) findViewById(R.id.nota_titulo_detalle);
+    final EditText descripcion = (EditText) findViewById(R.id.nota_descripcion_detalle);
+    final EditText latitud = (EditText) findViewById(R.id.nota_latitud_detalle);
+    final EditText longitud = (EditText) findViewById(R.id.nota_longitud_detalle);
+    final EditText fecha = (EditText) findViewById(R.id.nota_fecha_detalle);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nota_nueva);
 
         Bundle extra = this.getIntent().getExtras();
-
-        final EditText titulo = (EditText) findViewById(R.id.nota_titulo_detalle);
-        final EditText descripcion = (EditText) findViewById(R.id.nota_descripcion_detalle);
-        final EditText latitud = (EditText) findViewById(R.id.nota_latitud_detalle);
-        final EditText longitud = (EditText) findViewById(R.id.nota_longitud_detalle);
-        final EditText fecha = (EditText) findViewById(R.id.nota_fecha_detalle);
 
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
@@ -59,8 +60,8 @@ public class NotaNueva extends Activity implements
                     .build();
         }
 
-        Button btn_insertar_nota = (Button)findViewById(R.id.btn_insertar_nota);
-        btn_insertar_nota.setOnClickListener( new View.OnClickListener() {
+        Button btn_insertar_nota = (Button) findViewById(R.id.btn_insertar_nota);
+        btn_insertar_nota.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Log.i("Insertar", "Botón insertar clicado");
                 Uri uri = Uri.parse("content://rodriapp.gestordenotas");
@@ -79,27 +80,9 @@ public class NotaNueva extends Activity implements
                 startActivity(intent);
             }
         });
+
     }
 
-    // Definimos el evento callback onPause de la Actividad
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Aquí deberíamos guardar la información para la siguiente sesión Toast.makeText(this, "Se ejecuta el método onPause", 1).show();
-        //Toast.makeText(this, "Se ejecuta el método onPause en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onRestart de la Actividad
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        //Toast.makeText(this, "Se ejecuta el método onRestart en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
-    // Definimos el evento callback onResume de la Actividad
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //Toast.makeText(this, "Se ejecuta el método onResume en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
     // Definimos el evento callback onStart de la Actividad
     @Override
     protected void onStart() {
@@ -108,12 +91,7 @@ public class NotaNueva extends Activity implements
         // Aquí deberíamos leer los datos de la última sesión para seguir la // aplicación donde la dejó el usuario
         //Toast.makeText(this, "Se ejecuta el método onStart en Nota Detalle", Toast.LENGTH_LONG).show();
     }
-    // Definimos el evento callback onDestroy de la Actividad
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //Toast.makeText(this, "Se ejecuta el método onDestroy en Nota Detalle", Toast.LENGTH_LONG).show();
-    }
+
     // Definimos el evento callback onStop de la Actividad
     @Override
     protected void onStop() {
@@ -149,7 +127,6 @@ public class NotaNueva extends Activity implements
             if (lastLocation != null) {
                 latitud.setText(String.valueOf(lastLocation.getLatitude()));
                 longitud.setText(String.valueOf(lastLocation.getLongitude()));
-                //Toast.makeText(this, String.valueOf(lastLocation.getLatitude()) + " - " + String.valueOf(lastLocation.getLongitude()), Toast.LENGTH_SHORT).show();
             } else {
                 latitud.setText(R.string.no_latitud);
                 longitud.setText(R.string.no_longitud);
