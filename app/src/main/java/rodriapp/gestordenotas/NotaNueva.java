@@ -22,19 +22,18 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
-import java.util.Calendar;
-
 public class NotaNueva extends Activity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private static final int PETICION_PERMISO_LOCALIZACION = 0;
     GoogleApiClient mGoogleApiClient;
-
     final EditText titulo = (EditText) findViewById(R.id.nota_titulo_detalle);
     final EditText descripcion = (EditText) findViewById(R.id.nota_descripcion_detalle);
     final EditText latitud = (EditText) findViewById(R.id.nota_latitud_detalle);
     final EditText longitud = (EditText) findViewById(R.id.nota_longitud_detalle);
     final EditText fecha = (EditText) findViewById(R.id.nota_fecha_detalle);
+    final ImageView imagen = (ImageView) findViewById(R.id.nota_imagen_detalle);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +59,8 @@ public class NotaNueva extends Activity implements
                     .build();
         }
 
-        Button btn_insertar_nota = (Button) findViewById(R.id.btn_insertar_nota);
-        btn_insertar_nota.setOnClickListener(new View.OnClickListener() {
+        Button btn_insertar_nota = (Button)findViewById(R.id.btn_insertar_nota);
+        btn_insertar_nota.setOnClickListener( new View.OnClickListener() {
             public void onClick(View v) {
                 Log.i("Insertar", "Botón insertar clicado");
                 Uri uri = Uri.parse("content://rodriapp.gestordenotas");
@@ -71,7 +70,7 @@ public class NotaNueva extends Activity implements
                 values.put("latitud", latitud.getText().toString());
                 values.put("longitud", longitud.getText().toString());
                 values.put("fecha", fecha.getText().toString());
-                //values.put("imagen", imagen.toString());
+                //values.put("imagen", imagen.getImageAlpha());
                 getContentResolver().insert(uri, values);
 
                 Toast.makeText(getApplicationContext(), R.string.nota_insertada, Toast.LENGTH_LONG).show();
@@ -80,10 +79,8 @@ public class NotaNueva extends Activity implements
                 startActivity(intent);
             }
         });
-
     }
 
-    // Definimos el evento callback onStart de la Actividad
     @Override
     protected void onStart() {
         mGoogleApiClient.connect();
@@ -100,19 +97,8 @@ public class NotaNueva extends Activity implements
         //Toast.makeText(this, "Se ejecuta el método onStop en Nota Detalle", Toast.LENGTH_LONG).show();
     }
 
-    @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        //Se ha producido un error que no se puede resolver automáticamente
-        //y la conexión con los Google Play Services no se ha establecido.
-
-        Log.e("LOGTAG", "Error grave al conectar con Google Play Services");
-    }
-
     public void onConnected(@Nullable Bundle bundle) {
         //Conectado correctamente a Google Play Services
-
-        EditText latitud = (EditText) findViewById(R.id.nota_latitud_detalle);
-        EditText longitud = (EditText) findViewById(R.id.nota_longitud_detalle);
 
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -122,17 +108,17 @@ public class NotaNueva extends Activity implements
                     PETICION_PERMISO_LOCALIZACION);
         } else {
 
-            Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-
-            if (lastLocation != null) {
-                latitud.setText(String.valueOf(lastLocation.getLatitude()));
-                longitud.setText(String.valueOf(lastLocation.getLongitude()));
-            } else {
-                latitud.setText(R.string.no_latitud);
-                longitud.setText(R.string.no_longitud);
-            }
+            getCoordinates();
 
         }
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult result) {
+        //Se ha producido un error que no se puede resolver automáticamente
+        //y la conexión con los Google Play Services no se ha establecido.
+
+        Log.e("LOGTAG", "Error grave al conectar con Google Play Services");
     }
 
     @Override
@@ -142,30 +128,40 @@ public class NotaNueva extends Activity implements
         Log.e("LOGTAG", "Se ha interrumpido la conexión con Google Play Services");
     }
 
-    /*
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
         if (requestCode == PETICION_PERMISO_LOCALIZACION) {
             if (grantResults.length == 1
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                 //Permiso concedido
 
-                @SuppressWarnings("MissingPermission")
-                Location lastLocation =
-                        LocationServices.FusedLocationApi.getLastLocation(apiClient);
-
-                updateUI(lastLocation);
+                getCoordinates();
 
             } else {
                 //Permiso denegado:
                 //Deberíamos deshabilitar toda la funcionalidad relativa a la localización.
 
-                Log.e(LOGTAG, "Permiso denegado");
+                Log.e("LOGCAT", "Permiso denegado");
             }
         }
     }
-    */
+
+    public void getCoordinates()
+    {
+        @SuppressWarnings("MissingPermission")
+        Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+        if (lastLocation != null) {
+            latitud.setText(String.valueOf(lastLocation.getLatitude()));
+            longitud.setText(String.valueOf(lastLocation.getLongitude()));
+            //Toast.makeText(this, String.valueOf(lastLocation.getLatitude()) + " - " + String.valueOf(lastLocation.getLongitude()), Toast.LENGTH_SHORT).show();
+        } else {
+            latitud.setText(R.string.no_latitud);
+            longitud.setText(R.string.no_longitud);
+        }
+    }
 
     protected void cerrar(View view) {
         finish();

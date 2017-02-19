@@ -42,7 +42,7 @@ public class MainActivity extends ListActivity {
                 NotasProvider.LATITUD,
                 NotasProvider.LONGITUD,
                 NotasProvider.FECHA,
-                //NotasProvider.IMAGEN
+                NotasProvider.IMAGEN,
                 NotasProvider._ID,
         };
 
@@ -54,7 +54,7 @@ public class MainActivity extends ListActivity {
                 NotasProvider.LATITUD,
                 NotasProvider.LONGITUD,
                 NotasProvider.FECHA,
-                //NotasProvider.IMAGEN
+                NotasProvider.IMAGEN,
                 NotasProvider._ID,
         };
 
@@ -99,7 +99,6 @@ public class MainActivity extends ListActivity {
                 String descripcion = cursor.getString(1);
                 long latitud = cursor.getLong(2);
                 long longitud = cursor.getLong(3);
-                //Date fecha = new Date();
                 String fecha = cursor.getString(4);
                 Log.i("Datos: ", cursor.getString(5));
                 item.putExtra("_id", cursor.getString(5));
@@ -113,6 +112,7 @@ public class MainActivity extends ListActivity {
                 //cursor.close();
             }
         });
+
     }
 
     // Definimos el evento callback onPause de la Actividad

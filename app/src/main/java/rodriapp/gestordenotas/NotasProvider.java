@@ -114,8 +114,4 @@ public class NotasProvider extends ContentProvider {
         return 0;
     }
 
-    /*public void getCoordinates()
-    {
-        Location location = new Location()
-    }*/
 }

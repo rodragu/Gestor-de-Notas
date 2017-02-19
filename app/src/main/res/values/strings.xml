@@ -19,5 +19,7 @@
     <string name="nota_insertada">Nota nueva insertada correctamente</string>
     <string name="nota_editada">La nota fue editada correctamente</string>
     <string name="nota_eliminada">La nota fue editada correctamente</string>
+    <string name="pick_image_intent_text">Escoge una forma de obtener una imagen</string>
+    <string name="content_description_nota_imagen">Imagen de la nota</string>
 
 </resources>
